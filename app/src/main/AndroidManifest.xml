@@ -14,7 +14,8 @@
         android:theme="@style/Theme.Covid19Tracker">
         <activity
             android:name=".MoreDetails"
-            android:exported="true" />
+            android:exported="true"
+            android:parentActivityName=".MainActivity"/>
         <activity
             android:name=".MainActivity"
             android:exported="true">

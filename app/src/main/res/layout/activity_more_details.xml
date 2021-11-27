@@ -4,6 +4,206 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:padding="16dp"
     tools:context=".MoreDetails">
+
+    <LinearLayout
+        android:id="@+id/param_col"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/confirm"
+            android:textSize="@dimen/more_details_body" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/cured"
+            android:textSize="@dimen/more_details_body" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/death"
+            android:textSize="@dimen/more_details_body" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/active"
+            android:textSize="@dimen/more_details_body" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toEndOf="@id/param_col"
+        app:layout_constraintEnd_toStartOf="@id/day_col"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/total_confirmed"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:text="00000"
+            android:textColor="@color/purple_500"
+            android:textSize="@dimen/more_details_body" />
+
+        <TextView
+            android:id="@+id/total_cured"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:text="00000"
+            android:textColor="@color/green_700"
+            android:textSize="@dimen/more_details_body"/>
+
+        <TextView
+            android:id="@+id/total_death"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:text="00000"
+            android:textColor="@color/red_500"
+            android:textSize="@dimen/more_details_body" />
+
+        <TextView
+            android:id="@+id/total_active"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:text="00000"
+            android:textColor="@color/orange_700"
+            android:textSize="@dimen/more_details_body" />
+
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/day_col"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/day_confirm"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:text="↑00000"
+            android:textColor="@color/purple_500"
+            android:textSize="@dimen/more_details_body" />
+
+        <TextView
+            android:id="@+id/day_cured"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:text="↑00000"
+            android:textColor="@color/green_700"
+            android:textSize="@dimen/more_details_body" />
+
+        <TextView
+            android:id="@+id/day_death"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/red_500"
+            android:textSize="@dimen/more_details_body"
+            tools:text="↑00000" />
+        <TextView
+            android:id="@+id/day_active"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:text="↑00000"
+            android:textColor="@color/orange_700"
+            android:textSize="@dimen/more_details_body"/>
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/vacc_status"
+        app:layout_constraintTop_toBottomOf="@id/param_col"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAlignment="center"
+        android:textSize="@dimen/more_details_heading"
+        android:background="@color/gray"
+        android:layout_marginTop="15dp"
+        android:text="@string/vaccination_status"/>
+
+    <LinearLayout
+        android:id="@+id/dose1"
+        app:layout_constraintTop_toBottomOf="@id/vacc_status"
+        android:layout_marginTop="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:textSize="@dimen/more_details_body"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="16dp"
+            android:text="@string/dose_1" />
+        <TextView
+            android:id="@+id/total_vaccinated1"
+            style="@style/dose1_text"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"/>
+
+        <TextView
+            android:id="@+id/day_vaccinated1"
+            style="@style/dose1_text"
+            android:textAlignment="textEnd"
+            android:layout_width="0dp"
+            android:layout_weight="0.7"
+            android:layout_height="wrap_content"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/dose2"
+        app:layout_constraintTop_toBottomOf="@id/dose1"
+        android:layout_marginTop="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:textSize="@dimen/more_details_body"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="16dp"
+            android:text="@string/dose_2"/>
+        <TextView
+            android:id="@+id/total_vaccinated2"
+            style="@style/dose2_text"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"/>
+        <TextView
+            android:id="@+id/day_vaccinated2"
+            style="@style/dose2_text"
+            android:textAlignment="textEnd"
+            android:layout_weight="0.7"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"/>
+
+    </LinearLayout>
+
+
+    <TextView
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAlignment="center"
+        android:text="@string/update_message"
+        android:textColor="@color/purple_700"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

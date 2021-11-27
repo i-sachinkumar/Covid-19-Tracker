@@ -4,4 +4,6 @@
     <string name="confirm">सक्रिय</string>
     <string name="cured">" ठीक"</string>
     <string name="death">" मौत"</string>
+    <string name="vaccination_status">टीकाकरण की स्थिति</string>
+    <string name="update_message">डेटा हर 24 घंटे में अपडेट हो जाता है</string>
 </resources>

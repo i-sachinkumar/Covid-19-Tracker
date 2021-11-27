@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="more_details_body">15sp</dimen>
+    <dimen name="more_details_heading">25sp</dimen>
+</resources>
