@@ -40,16 +40,16 @@ class StateAdapter(context: Context, list: List<State>) : ArrayAdapter<State>(co
         total_active_textView.text = (current.total_confirmed - current.total_cured - current.total_death).toString()
 
         val day_confirm_textView : TextView = listViewItem.findViewById(R.id.day_confirm)
-        day_confirm_textView.text = current.day_confirm.toString()
+        day_confirm_textView.text = "↑${current.day_confirm}"
 
         val day_cured_textView : TextView = listViewItem.findViewById(R.id.day_cured)
-        day_cured_textView.text = current.day_cured.toString()
+        day_cured_textView.text = "↑${current.day_cured}"
 
         val day_death_textView : TextView = listViewItem.findViewById(R.id.day_death)
-        day_death_textView.text = current.day_death.toString()
+        day_death_textView.text = "↑${current.day_death}"
 
         val day_active_textView : TextView = listViewItem.findViewById(R.id.day_active)
-        day_active_textView.text = current.day_confirm.toString()
+        day_active_textView.text = "↑${current.day_confirm}"
 
 
         // on click -> open url about clicked earthquake in browser
