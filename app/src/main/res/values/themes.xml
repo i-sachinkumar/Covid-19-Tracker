@@ -13,4 +13,14 @@
         <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
         <!-- Customize your theme here. -->
     </style>
+
+    <style name="dose1_text" parent="Widget.MaterialComponents.TextView">
+            <item name="android:textSize">@dimen/more_details_body</item>
+            <item name="android:textColor">@color/green_500</item>
+    </style>
+
+    <style name="dose2_text" parent="Widget.MaterialComponents.TextView">
+        <item name="android:textSize">@dimen/more_details_body</item>
+        <item name="android:textColor">@color/green_700</item>
+    </style>
 </resources>

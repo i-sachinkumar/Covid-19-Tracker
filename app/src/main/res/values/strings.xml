@@ -4,4 +4,8 @@
     <string name="cured">Cured</string>
     <string name="death">Death</string>
     <string name="active" translatable="false">Active</string>
+    <string name="vaccination_status">Vaccination Status</string>
+    <string name="update_message">Data gets updated every 24 hrs.</string>
+    <string name="dose_1">Dose 1:</string>
+    <string name="dose_2">Dose 2:</string>
 </resources>
