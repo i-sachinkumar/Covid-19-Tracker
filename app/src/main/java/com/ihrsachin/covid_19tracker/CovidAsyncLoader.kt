@@ -83,13 +83,20 @@ class CovidAsyncLoader(context: Context, private val baseUrl: String?) :
         val list = ArrayList<State>()
         if(jsonResponse != "") {
             val jsonObject = JSONObject(jsonResponse)
-//            for (i in 1..jsonArray.length()) {
-//                val propertiesObj = jsonArray.getJSONObject(i - 1).getJSONObject("properties")
-//                list.add(Earthquake(propertiesObj.getDouble("mag"),
-//                    propertiesObj.getString("place"),
-//                    propertiesObj.getLong("time"),
-//                    propertiesObj.getString("url")))
-           // }
+            for (i in 1..37) {
+
+                val state_name: String? = getState(getCode(i).toString())
+
+                val total : JSONObject = jsonObject.getJSONObject("total")
+                val total_confirmed = total.getInt("confirmed")
+                val total_cured = total.getInt("recovered")
+                val total_death = total.getInt("deceased")
+
+                val delta : JSONObject = jsonObject.getJSONObject("delta")
+                val day_confirmed = delta.getInt("confirmed")
+                val day_cured = delta.getInt("recovered")
+                val day_death = delta.getInt("deceased")
+            }
         }
         return list
     }
@@ -97,4 +104,91 @@ class CovidAsyncLoader(context: Context, private val baseUrl: String?) :
     override fun onStartLoading() {
         forceLoad()
     }
+
+    public fun getCode(int_code : Int) : String?{
+        when(int_code){
+            1 -> return  "AN"
+            2 -> return  "AP"
+            3 -> return  "AR"
+            4 -> return  "AS"
+            5 -> return  "BR"
+            6 -> return  "CH"
+            7 -> return  "CT"
+            8 -> return  "DN"
+            9 -> return  "DD"
+            10 -> return "GA"
+            11 -> return "GJ"
+            12 -> return "DL"
+            13 -> return "HR"
+            14 -> return "HP"
+            15 -> return "JK"
+            16 -> return "JH"
+            17 -> return "KA"
+            18 -> return "KL"
+            19 -> return "LA"
+            20 -> return "LD"
+            21 -> return "MP"
+            22 -> return "MH"
+            23 -> return "MN"
+            24 -> return "ML"
+            25 -> return "MZ"
+            26 -> return "NL"
+            27 -> return "OR"
+            28 -> return "PB"
+            29 -> return "PY"
+            30 -> return "RJ"
+            31 -> return "SK"
+            32 -> return "TN"
+            33 -> return "TG"
+            34 -> return "TR"
+            35 -> return "UP"
+            36 -> return "UT"
+            37 -> return "WB"
+        }
+        return null
+    }
+
+    public fun getState(state_code : String) : String? {
+        when(state_code){
+            "AN" -> return "Andaman & Nicobar"
+            "AP" -> return "Andhra Pradesh"
+            "AR" -> return "Arunachal Pradesh"
+            "AS" -> return "Assam"
+            "BR" -> return "Bihar"
+            "CH" -> return "Chandigarh"
+            "CT" -> return "Chhattisgarh"
+            "DL" -> return "Delhi"
+            "DN" -> return "Dadra and Nagar Haveli"
+            "DD" -> return "Daman and Diu"
+            "GA" -> return "Goa"
+            "GJ" -> return "Gujarat"
+            "HR" -> return "Haryana"
+            "HP" -> return "Himachal Pradesh"
+            "JK" -> return "Jammu and Kashmir"
+            "JH" -> return "Jharkhand"
+            "KA" -> return "Karnataka"
+            "KL" -> return "Kerala"
+            "LA" -> return "Ladakh"
+            "LD" -> return "Lakshadweep"
+            "MP" -> return "Madhya Pradesh"
+            "MH" -> return "Maharashtra"
+            "MN" -> return "Manipur"
+            "ML" -> return "Meghalaya"
+            "MZ" -> return "Mizoram"
+            "NL" -> return "Nagaland"
+            "OR" -> return "Odisha"
+            "PB" -> return "Punjab"
+            "PY" -> return "Pondicherry"
+            "RJ" -> return "Rajasthan"
+            "SK" -> return "Sikkim"
+            "TN" -> return "Tamil Nadu"
+            "TG" -> return "Telangana"
+            "TR" -> return "Tripura"
+            "UP" -> return "Uttar Pradesh"
+            "UT" -> return "Uttarakhand"
+            "WB" -> return "West Bengal"
+        }
+        return null
+    }
+
 }

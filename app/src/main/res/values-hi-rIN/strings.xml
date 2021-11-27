@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Covid-19 Tracker</string>
-    <string name="active">सक्रिय</string>
+    <string name="confirm">सक्रिय</string>
     <string name="cured">" ठीक"</string>
     <string name="death">" मौत"</string>
 </resources>
