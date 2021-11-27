@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="@color/gray"
+    android:background="#B1B0B0"
     android:orientation="horizontal"
     android:padding="10dp">
 
@@ -12,8 +12,8 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
-            android:paddingHorizontal="5dp"
-            android:layout_weight="0.9"
+            android:layout_marginHorizontal="5dp"
+            android:layout_weight="0.8"
             android:gravity="center"
             tools:text="Andaman and Nicobar"
             android:textColor="@color/teal_500"
@@ -23,7 +23,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="5dp"
-            android:layout_weight="0.4"
+            android:layout_weight="0.55"
             android:orientation="vertical">
 
             <TextView
@@ -58,7 +58,7 @@
             android:orientation="vertical">
 
             <TextView
-                android:id="@+id/active_total"
+                android:id="@+id/total_confirmed"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 tools:text="00000"
@@ -66,7 +66,7 @@
                 android:textSize="13sp" />
 
             <TextView
-                android:id="@+id/cured_total"
+                android:id="@+id/total_cured"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 tools:text="00000"
@@ -74,24 +74,33 @@
                 android:textSize="13sp" />
 
             <TextView
-                android:id="@+id/death_total"
+                android:id="@+id/total_death"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 tools:text="00000"
                 android:textColor="@color/red_500"
                 android:textSize="13sp" />
 
+            <TextView
+                android:id="@+id/total_active"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                tools:text="00000"
+                android:textColor="@color/orange_700"
+                android:textSize="13sp" />
+
+
 
         </LinearLayout>
 
         <LinearLayout
             android:layout_width="0dp"
+            android:layout_weight="0.35"
             android:layout_height="wrap_content"
-            android:layout_weight="0.6"
             android:orientation="vertical">
 
             <TextView
-                android:id="@+id/day_active"
+                android:id="@+id/day_confirm"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 tools:text="↑00000"
@@ -110,8 +119,15 @@
                 android:id="@+id/day_death"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                tools:text="↑00000"
                 android:textColor="@color/red_500"
+                android:textSize="13sp"
+                tools:text="↑00000" />
+            <TextView
+                android:id="@+id/day_active"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                tools:text="↑00000"
+                android:textColor="@color/orange_700"
                 android:textSize="13sp" />
 
         </LinearLayout>

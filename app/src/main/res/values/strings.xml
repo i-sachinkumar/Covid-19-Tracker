@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">Covid-19 Tracker</string>
-    <string name="confirm">Confirm</string>
+    <string name="confirm">Confirmed</string>
     <string name="cured">Cured</string>
     <string name="death">Death</string>
-    <String name="active">Active</String>
+    <string name="active" translatable="false">Active</string>
 </resources>

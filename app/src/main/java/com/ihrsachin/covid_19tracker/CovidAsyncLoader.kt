@@ -3,11 +3,13 @@ package com.ihrsachin.covid_19tracker
 import android.content.Context
 import androidx.loader.content.AsyncTaskLoader
 import com.ihrsachin.covid_19tracker.data.State
+import org.json.JSONException
 import org.json.JSONObject
 import java.io.BufferedReader
 import java.io.IOException
 import java.io.InputStream
 import java.io.InputStreamReader
+import java.lang.Exception
 import java.net.HttpURLConnection
 import java.net.MalformedURLException
 import java.net.URL
@@ -83,19 +85,93 @@ class CovidAsyncLoader(context: Context, private val baseUrl: String?) :
         val list = ArrayList<State>()
         if(jsonResponse != "") {
             val jsonObject = JSONObject(jsonResponse)
-            for (i in 1..37) {
-
+            for (i in 1..36) {
                 val state_name: String? = getState(getCode(i).toString())
 
-                val total : JSONObject = jsonObject.getJSONObject("total")
-                val total_confirmed = total.getInt("confirmed")
-                val total_cured = total.getInt("recovered")
-                val total_death = total.getInt("deceased")
 
-                val delta : JSONObject = jsonObject.getJSONObject("delta")
-                val day_confirmed = delta.getInt("confirmed")
-                val day_cured = delta.getInt("recovered")
-                val day_death = delta.getInt("deceased")
+                val total : JSONObject = jsonObject.getJSONObject(getCode(i).toString()).getJSONObject("total")
+
+                var total_confirmed = 0
+                try{
+                    total_confirmed = total.getInt("confirmed")
+                } catch (e : JSONException){}
+
+
+                var total_cured = 0
+                try{
+                    total_cured = total.getInt("recovered")
+                } catch (e : JSONException){}
+
+
+                var total_death = 0
+                try{
+                    total_death = total.getInt("deceased")
+                } catch (e : JSONException){}
+
+
+                var total_vaccination1 = 0
+                try{
+                    total_vaccination1 = total.getInt("vaccinated1")
+                } catch (e : JSONException){}
+
+
+                var total_vaccination2 = 0
+                try{
+                    total_vaccination2 = total.getInt("vaccinated2")
+                } catch (e : JSONException){}
+
+
+                var total_population = 0
+                try{
+                    total_population = jsonObject.getJSONObject(getCode(i).toString()).getJSONObject("meta").getInt("population")
+                } catch (e : JSONException){}
+
+
+                val delta : JSONObject = jsonObject.getJSONObject(getCode(i).toString()).getJSONObject("delta")
+                var day_confirmed = 0
+                try{
+                    day_confirmed = delta.getInt("confirmed")
+                } catch (e : JSONException){}
+
+
+                var day_cured = 0
+                try{
+                    day_cured = delta.getInt("recovered")
+                } catch (e : JSONException){}
+
+
+                var day_death = 0
+                try{
+                    day_death = delta.getInt("deceased")
+                } catch (e : JSONException){}
+
+
+                var day_vaccination1 = 0
+                try{
+                    day_vaccination1 = delta.getInt("vaccinated1")
+                } catch (e : JSONException){}
+
+
+                var day_vaccination2 = 0
+                try{
+                    day_vaccination2 = delta.getInt("vaccinated2")
+                } catch (e : JSONException){}
+
+
+                list.add(State(
+                    state_name,
+                    total_confirmed,
+                    total_cured,
+                    total_death,
+                    total_population,
+                    total_vaccination1,
+                    total_vaccination2,
+                    day_confirmed,
+                    day_cured,
+                    day_death,
+                    day_vaccination1,
+                    day_vaccination2
+                ))
             }
         }
         return list
@@ -115,35 +191,34 @@ class CovidAsyncLoader(context: Context, private val baseUrl: String?) :
             6 -> return  "CH"
             7 -> return  "CT"
             8 -> return  "DN"
-            9 -> return  "DD"
-            10 -> return "GA"
-            11 -> return "GJ"
-            12 -> return "DL"
-            13 -> return "HR"
-            14 -> return "HP"
-            15 -> return "JK"
-            16 -> return "JH"
-            17 -> return "KA"
-            18 -> return "KL"
-            19 -> return "LA"
-            20 -> return "LD"
-            21 -> return "MP"
-            22 -> return "MH"
-            23 -> return "MN"
-            24 -> return "ML"
-            25 -> return "MZ"
-            26 -> return "NL"
-            27 -> return "OR"
-            28 -> return "PB"
-            29 -> return "PY"
-            30 -> return "RJ"
-            31 -> return "SK"
-            32 -> return "TN"
-            33 -> return "TG"
-            34 -> return "TR"
-            35 -> return "UP"
-            36 -> return "UT"
-            37 -> return "WB"
+            9 -> return "GA"
+            10 -> return "GJ"
+            11 -> return "DL"
+            12 -> return "HR"
+            13 -> return "HP"
+            14 -> return "JK"
+            15 -> return "JH"
+            16 -> return "KA"
+            17 -> return "KL"
+            18 -> return "LA"
+            19 -> return "LD"
+            20 -> return "MP"
+            21 -> return "MH"
+            22 -> return "MN"
+            23 -> return "ML"
+            24 -> return "MZ"
+            25 -> return "NL"
+            26 -> return "OR"
+            27 -> return "PB"
+            28 -> return "PY"
+            29 -> return "RJ"
+            30 -> return "SK"
+            31 -> return "TN"
+            32 -> return "TG"
+            33 -> return "TR"
+            34 -> return "UP"
+            35 -> return "UT"
+            36 -> return "WB"
         }
         return null
     }
